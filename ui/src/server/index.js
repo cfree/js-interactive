@@ -14,7 +14,6 @@ app.get('/api/framework', (req, res, next) => {
 
 
 if (isProd) {
-  console.log('PROD');
   app.use(express.static('build'));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../../build', 'index.html'));
