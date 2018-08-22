@@ -53,11 +53,11 @@
     "build": "node scripts/build.js",
     "start:client": "node scripts/start.js",
     "start:server": "node .",
-    "dev": "concurrently --kill-others-on-fail \"yarn start:client\" \"yarn start:server\"",
+    "dev": "concurrently --kill-others-on-fail \"yarn start:server\" \"yarn start:client\"",
     "test": "node scripts/test.js --env=jsdom"
   },
   "main": "src/server/index.js",
-  "proxy": "http://localhost:5000/",
+  "proxy": "http://localhost:5000",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
