@@ -24,7 +24,7 @@ docker build -t roulette-api .
 ```
 
 ```
-docker run -p 5001:5001 roulette-api
+docker run -it --name roulette-api --network roulette-net -p 5001:5001 roulette-api
 ```
 
 When prompted, your API is available at `http://localhost:5001`.

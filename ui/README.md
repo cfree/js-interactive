@@ -50,7 +50,7 @@ docker build -t roulette-ui .
 ```
 
 ```
-docker run -p 5000:5000 roulette-ui
+docker run -it -e API_URL="http://roulette-api" -e API_PORT="5001" --name roulette-ui --network roulette-net -p 5000:5000 roulette-ui
 ```
 
 When prompted, visit `http://localhost:5000` in your browser.
