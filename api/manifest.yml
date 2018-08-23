@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roulette-api
+spec:
+  selector:
+    matchLabels:
+      app: roulette-api
+      tier: backend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: roulette-api
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: roulette-api
+          image: "cfree/roulette-api:latest"
+          ports:
+            - name: http
+              containerPort: 5001
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: roulette-api
+spec:
+  selector:
+    app: roulette-api
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 5001
+    targetPort: http
+
