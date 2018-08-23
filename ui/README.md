@@ -41,3 +41,16 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
+## Docker
+
+To run in a local docker container, ensure Docker is installed. Clone this repository and run the following commands from the local directory:
+
+```
+docker build -t roulette-ui .
+```
+
+```
+docker run -p 5000:5000 roulette-ui
+```
+
+When prompted, visit `http://localhost:5000` in your browser.
