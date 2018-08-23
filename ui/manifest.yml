@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  selector:
+    app: roulette-ui
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 5000
+    targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: roulette-ui
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: roulette-ui
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: roulette-ui
+        image: "cfee/roulette-ui:latest"
+        env:
+        - name: API_URL
+          value: "http://roulette-api"
+        - name: API_PORT
+          value: "5001"
