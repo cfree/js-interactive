@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: roulette-ui
-        image: "cfee/roulette-ui:latest"
+        image: "cfree/roulette-ui:latest"
         env:
         - name: API_URL
           value: "http://roulette-api"
